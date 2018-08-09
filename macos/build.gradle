@@ -1,0 +1,21 @@
+ext {
+    tornadofx_version = '1.7.16'
+    jvm_version = '1.8'
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = jvm_version
+}
+
+dependencies {
+    compile "no.tornado:tornadofx:$tornadofx_version"
+}
+
+apply plugin: 'application'
+mainClassName = 'OrionApp'

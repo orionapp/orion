@@ -1,3 +1,5 @@
 .DS_Store
 bin/
 *.pem
+\.gradle/
+build/
