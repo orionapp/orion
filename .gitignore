@@ -6,3 +6,6 @@ build/
 \.settings/
 \.project
 upload-site.sh
+\.idea/
+node_modules/
+package-lock.json
