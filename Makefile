@@ -1,28 +1,24 @@
-TARGET ?= orion
-SRC_DIR ?= src
-BIN_DIR ?= bin
-BUILD_CMD ?= konanc $(SRC_DIR)/main.kt
-TARGET_PATH ?= $(BIN_DIR)/$(TARGET).kexe
-
 # Compiles everything.
-all: $(TARGET_PATH)
+all: build
 
-# Compiles the target executable as the combination of many object files.
-$(TARGET_PATH):
-	@mkdir -p $(BIN_DIR)
-	$(BUILD_CMD) -o $(TARGET_PATH)
+# Builds the app.
+build:
+	# Use `gradlew.bat build` if on Windows.
+	./gradlew build
 
-# Runs the program executable.
-run: $(TARGET_PATH)
-	@./$(TARGET_PATH)
+# Runs the app.
+run:
+	# Use `gradlew.bat run` if on Windows.
+	./gradlew run
 
 # Removes all object and executable files.
 clean:
-	rm -rf $(BIN_DIR)
+	# Use `gradlew.bat clean` if on Windows.
+	./gradlew clean
 
 # Removes and recompiles everything.
 fresh: clean all
 
 # Specifies which rule targets don't actually refer to filenames, but
 # are just commands instead.
-.PHONY: all run clean fresh
+.PHONY: all build run clean fresh

@@ -1,0 +1,7 @@
+apply plugin: 'konan'
+
+konanArtifacts {
+    program('orion', targets: ['wasm32']) {
+        srcDir 'src/main/kotlin'
+    }
+}
