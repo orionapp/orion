@@ -1,31 +1,12 @@
 ext {
-    // All platforms
     group = 'orion'
     version = '0.0.1'
     gradle_version = '4.9'
     kotlin_version = '1.2.60'
-
-    // JVM
-    jvm_version = '1.8'
-    tornadofx_version = '1.7.16'
 }
 
 group = group
 version = version
-
-subprojects {
-    buildscript {
-        repositories {
-            mavenCentral()
-        }
-        dependencies {
-            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        }
-    }
-    repositories {
-        mavenCentral()
-    }
-}
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradle_version

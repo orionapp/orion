@@ -1,3 +1,17 @@
+ext {
+    jvm_version = '1.8'
+    tornadofx_version = '1.7.16'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
 apply plugin: 'kotlin-platform-jvm'
 apply plugin: 'kotlin'
 apply plugin: 'application'
@@ -6,6 +20,10 @@ mainClassName = 'jvm.orion.app.OrionApp'
 
 compileKotlin {
     kotlinOptions.jvmTarget = jvm_version
+}
+
+repositories {
+    mavenCentral()
 }
 
 dependencies {
