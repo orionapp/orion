@@ -12,5 +12,6 @@ task wrapper(type: Wrapper) {
     gradleVersion = gradle_version
 }
 
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter clean
+task stage(type: GradleBuild) {
+    tasks = ['clean', 'build']
+}
