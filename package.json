@@ -1,0 +1,16 @@
+{
+    "name": "orion",
+    "version": "0.0.1",
+    "description": "Orion App",
+    "main": "web/src/server/server.js",
+    "scripts": {
+        "start": "node web/src/server/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/orionapp/orion.git"
+    },
+    "author": "Ross Flieger-Allison",
+    "license": "MIT"
+}
+  
