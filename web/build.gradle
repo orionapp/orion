@@ -45,7 +45,6 @@ kotlinFrontend {
         bundleName = "main"
         sourceMapEnabled = true
         contentPath = file('public')
-        port = System.env.PORT as Integer
     }
 }
 
