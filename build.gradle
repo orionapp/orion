@@ -11,3 +11,6 @@ version = version
 task wrapper(type: Wrapper) {
     gradleVersion = gradle_version
 }
+
+task stage(dependsOn: ['build', 'clean'])
+build.mustRunAfter clean
