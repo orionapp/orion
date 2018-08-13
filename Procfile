@@ -1,1 +1,1 @@
-web: ./gradlew :web:start
+web: ./gradlew :start
