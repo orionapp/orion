@@ -1,1 +1,1 @@
-web: node web/src/server/server.js
+web: ./gradlew :web:start
