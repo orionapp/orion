@@ -39,12 +39,18 @@ kotlinFrontend {
         dependency "react"
         dependency "react-dom"
         dependency "react-router-dom"
+        dependency "express"
+        devDependency("html-webpack-plugin", "^3.2.0")
+        devDependency("clean-webpack-plugin", "^0.1.19")
+        devDependency("css-loader", "^0.28.11")
+        devDependency("file-loader", "^1.1.11")
+        devDependency("style-loader", "^0.21.0")
     }
     sourceMaps = true
     webpackBundle {
         bundleName = "main"
         sourceMapEnabled = true
-        contentPath = file('public')
+        webpackConfigFile = project.projectDir.path + '/webpack.config.js'
     }
 }
 
@@ -60,4 +66,5 @@ dependencies {
     compile "org.jetbrains:kotlin-react:$react_version"
     compile "org.jetbrains:kotlin-react-dom:$react_dom_version"
     expectedBy project(':common')
+    compile project(':common-js')
 }

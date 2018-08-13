@@ -1,4 +1,4 @@
 rootProject.name = 'orion'
 include 'common'
-// include 'jvm'
+include 'common-js'
 include 'web'
