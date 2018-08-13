@@ -1,13 +1,13 @@
-allprojects {
-    buildscript {
-        repositories {
-            mavenCentral()
-            maven {
-                url "https://dl.bintray.com/jetbrains/kotlin-native-dependencies"
-            }
-        }
-        dependencies {
-            classpath "org.jetbrains.kotlin:kotlin-native-gradle-plugin:+"
-        }
-    }
+ext {
+    group = 'orion'
+    version = '0.0.1'
+    gradle_version = '4.9'
+    kotlin_version = '1.2.60'
+}
+
+group = group
+version = version
+
+task wrapper(type: Wrapper) {
+    gradleVersion = gradle_version
 }

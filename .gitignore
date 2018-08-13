@@ -1,8 +1,6 @@
 .DS_Store
 bin/
-*.pem
 \.gradle/
 build/
 \.settings/
 \.project
-upload-site.sh

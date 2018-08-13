@@ -1,7 +1,65 @@
-apply plugin: 'konan'
+ext {
+    nodejs_version = '10.8.0'
+    kotlinx_html_version = "0.6.4"
+    react_version = "16.4.2-pre.38-kotlin-$kotlin_version"
+    react_dom_version = "16.4.2-pre.38-kotlin-$kotlin_version"
+}
 
-konanArtifacts {
-    program('orion', targets: ['wasm32']) {
-        srcDir 'src/main/kotlin'
+buildscript {
+    ext {
+        kotlin_frontend_version = '0.0.36'
     }
+    repositories {
+        mavenCentral()
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-frontend-plugin:$kotlin_frontend_version"
+    }
+}
+
+apply plugin: 'org.jetbrains.kotlin.frontend'
+apply plugin: 'kotlin2js'
+apply plugin: 'kotlin-platform-js'
+
+compileKotlin2Js {
+    kotlinOptions {
+        metaInfo = true
+        sourceMap = true
+        moduleKind = 'commonjs'
+        kotlinOptions.outputFile = "$project.buildDir.path/js/${project.name}.js"
+        main = "call"
+    }
+}
+
+kotlinFrontend {
+    downloadNodeJsVersion = nodejs_version
+    npm {
+        dependency "react"
+        dependency "react-dom"
+        dependency "react-router-dom"
+    }
+    sourceMaps = true
+    webpackBundle {
+        bundleName = "main"
+        sourceMapEnabled = true
+        contentPath = file('public')
+        host = "localhost"
+        port = 3000
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://dl.bintray.com/kotlinx/kotlinx" }
+    maven { url "http://dl.bintray.com/kotlin/kotlin-js-wrappers" }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+    compile "org.jetbrains.kotlinx:kotlinx-html-js:$kotlinx_html_version"
+    compile "org.jetbrains:kotlin-react:$react_version"
+    compile "org.jetbrains:kotlin-react-dom:$react_dom_version"
+    expectedBy project(':common')
 }

@@ -1,2 +1,4 @@
 rootProject.name = 'orion'
-include 'common', 'web'
+include 'common'
+// include 'jvm'
+include 'web'
