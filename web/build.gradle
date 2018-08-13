@@ -45,8 +45,7 @@ kotlinFrontend {
         bundleName = "main"
         sourceMapEnabled = true
         contentPath = file('public')
-        host = "localhost"
-        port = 3000
+        port = System.env.PORT as Integer
     }
 }
 
