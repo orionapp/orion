@@ -8,7 +8,7 @@ module.exports = {
   entry: config.moduleName,
   output: {
     path: path.resolve('./bundle'),
-    publicPath: '/build/',
+    publicPath: '',
     filename: '[name].bundle.js'
   },
   resolve: {
@@ -22,7 +22,7 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
           use: ['file-loader']
       }
     ]
@@ -30,7 +30,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([path.resolve('./bundle')]),
     new HtmlWebpackPlugin({
-        template: "../public/index.html",
+        template: "../public/template.html",
         favicon: "../../assets/images/favicon/favicon.ico",
         filename: "index.html",
         title: "Orion",
