@@ -24,3 +24,11 @@ p {
     width: 100%;
     position: relative;
 }
+
+.center-div-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}

@@ -1,7 +1,8 @@
 package logo
 
-import react.*
-import react.dom.*
+import react.RBuilder
+import react.dom.div
+import react.dom.img
 import js.utils.require
 
 val logoStyles = require("../../src/main/kotlin/orion/components/logo/logo.css")

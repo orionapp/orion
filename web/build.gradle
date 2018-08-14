@@ -3,6 +3,7 @@ ext {
     kotlinx_html_version = "0.6.4"
     react_version = "16.4.2-pre.38-kotlin-$kotlin_version"
     react_dom_version = "16.4.2-pre.38-kotlin-$kotlin_version"
+    react_router_dom_version = "4.3.1-pre.38-kotlin-$kotlin_version"
 }
 
 buildscript {
@@ -41,7 +42,6 @@ kotlinFrontend {
         dependency "react"
         dependency "react-dom"
         dependency "react-router-dom"
-        dependency "express"
         devDependency("webpack", "4.16.5")
         devDependency("html-webpack-plugin", "^3.2.0")
         devDependency("clean-webpack-plugin", "^0.1.19")
@@ -68,6 +68,7 @@ dependencies {
     compile "org.jetbrains.kotlinx:kotlinx-html-js:$kotlinx_html_version"
     compile "org.jetbrains:kotlin-react:$react_version"
     compile "org.jetbrains:kotlin-react-dom:$react_dom_version"
+    compile "org.jetbrains:kotlin-react-router-dom:$react_router_dom_version"
     expectedBy project(':common')
     compile project(':common-js')
 }

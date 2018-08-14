@@ -1,16 +1,23 @@
 package app
 
-import react.*
-import react.dom.*
-import logo.*
+import react.RComponent
+import react.RProps
+import react.RState
+import react.RBuilder
+import react.router.dom.browserRouter
+import react.router.dom.route
+import react.router.dom.switch
 import js.utils.require
-
-val appStyles = require("../../src/main/kotlin/orion/components/app/app.css")
+import login.Login
+import home.Home
 
 class App : RComponent<RProps, RState>() {
     override fun RBuilder.render() {
-        div("center-div-outer") {
-            logo()
+        browserRouter {
+            switch {
+                route("/", Home::class, exact = true)
+                route("/login", Login::class)
+            }
         }
     }
 }
