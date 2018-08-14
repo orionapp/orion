@@ -1,11 +1,10 @@
-const config = require('./build/WebPackHelper.js');
 const path = require('path');
 const webpack = require('./build/node_modules/webpack/lib/webpack.js');
 const HtmlWebpackPlugin = require('./build/node_modules/html-webpack-plugin/index.js');
 const CleanWebpackPlugin = require('./build/node_modules/clean-webpack-plugin/index.js');
 
 module.exports = {
-    entry: config.moduleName,
+    entry: "web",
     output: {
         path: path.resolve('./bundle'),
         publicPath: '',
