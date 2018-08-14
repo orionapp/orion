@@ -6,3 +6,4 @@ build/
 \.project
 Icon?
 .classpath
+upload-site.sh
