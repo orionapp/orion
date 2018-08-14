@@ -3,6 +3,7 @@ ext {
     version = '0.0.1'
     gradle_version = '4.9'
     kotlin_version = '1.2.60'
+    build_env = System.getenv("BUILD_ENV") ?: "production"
 }
 
 group = group
@@ -10,8 +11,4 @@ version = version
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradle_version
-}
-
-task stage(type: GradleBuild) {
-    tasks = ['clean', 'build']
 }

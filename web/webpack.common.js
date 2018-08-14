@@ -22,8 +22,8 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-          test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
-          use: ['file-loader']
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
+        use: ['file-loader']
       }
     ]
   },
@@ -45,5 +45,4 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
-  devtool: 'source-map',
 };

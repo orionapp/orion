@@ -33,6 +33,8 @@ compileKotlin2Js {
     }
 }
 
+def webpack_config = build_env == "production" ? 'webpack.prod.js' : 'webpack.dev.js'
+
 kotlinFrontend {
     downloadNodeJsVersion = nodejs_version
     npm {
@@ -40,17 +42,18 @@ kotlinFrontend {
         dependency "react-dom"
         dependency "react-router-dom"
         dependency "express"
+        devDependency("webpack", "4.16.5")
         devDependency("html-webpack-plugin", "^3.2.0")
         devDependency("clean-webpack-plugin", "^0.1.19")
         devDependency("css-loader", "^0.28.11")
         devDependency("file-loader", "^1.1.11")
         devDependency("style-loader", "^0.21.0")
+        devDependency("webpack-merge", "4.1.4")
+        devDependency("uglifyjs-webpack-plugin", "1.2.7")
     }
-    sourceMaps = true
     webpackBundle {
         bundleName = "main"
-        sourceMapEnabled = true
-        webpackConfigFile = project.projectDir.path + '/webpack.config.js'
+        webpackConfigFile = project.projectDir.path + '/' + webpack_config
     }
 }
 
