@@ -1,0 +1,6 @@
+language: java
+install: true
+jobs:
+  include:
+    - stage: build
+      script: "make stage"
