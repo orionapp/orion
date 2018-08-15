@@ -5,8 +5,8 @@ import react.RProps
 import react.RState
 import react.RBuilder
 import react.router.dom.browserRouter
-import react.router.dom.route
 import react.router.dom.switch
+import react.router.dom.route
 import js.utils.require
 import login.Login
 import home.Home

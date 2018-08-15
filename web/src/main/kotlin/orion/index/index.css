@@ -13,6 +13,8 @@ body {
     position: absolute;
     height: 100%;
     width: 100%;
+    min-width: 350px;
+    min-height: 350px;
 }
 
 p {
@@ -29,6 +31,11 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    text-align: center;
+}
+
+.floating {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    padding: 20px;
 }

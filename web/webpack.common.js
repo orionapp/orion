@@ -12,7 +12,7 @@ module.exports = {
     },
     resolve: {
         modules: [ path.resolve('js'), path.resolve('..', 'src'), path.resolve('.'), path.resolve('node_modules') ],
-        extensions: ['*', '.js']
+        extensions: ['*', '.js', '.css']
     },
     module: {
         rules: [

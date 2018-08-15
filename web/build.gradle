@@ -4,6 +4,9 @@ ext {
     react_version = "16.4.2-pre.38-kotlin-$kotlin_version"
     react_dom_version = "16.4.2-pre.38-kotlin-$kotlin_version"
     react_router_dom_version = "4.3.1-pre.38-kotlin-$kotlin_version"
+    kotlin_css_version = "1.0.0-pre.38-kotlin-$kotlin_version"
+    kotlin_css_js_version = "1.0.0-pre.38-kotlin-$kotlin_version"
+    kotlin_styled_version = "1.0.0-pre.38-kotlin-$kotlin_version"
 }
 
 buildscript {
@@ -39,10 +42,10 @@ def webpack_config = build_env == "production" ? 'webpack.prod.js' : 'webpack.de
 kotlinFrontend {
     downloadNodeJsVersion = nodejs_version
     npm {
-        dependency "react"
-        dependency "react-dom"
-        dependency "react-router-dom"
-        dependency "express"
+        dependency("react", "16.4.2")
+        dependency("react-dom", "16.4.2")
+        dependency("react-router-dom", "4.3.1")
+        dependency("express", "4.16.3")
         devDependency("webpack", "4.16.5")
         devDependency("html-webpack-plugin", "^3.2.0")
         devDependency("clean-webpack-plugin", "^0.1.19")
@@ -51,6 +54,8 @@ kotlinFrontend {
         devDependency("style-loader", "^0.21.0")
         devDependency("webpack-merge", "4.1.4")
         devDependency("uglifyjs-webpack-plugin", "1.2.7")
+        devDependency("inline-style-prefixer", "4.0.2")
+        devDependency("styled-components", "3.4.2")
     }
     webpackBundle {
         bundleName = "main"
@@ -72,6 +77,9 @@ dependencies {
     compile "org.jetbrains:kotlin-react:$react_version"
     compile "org.jetbrains:kotlin-react-dom:$react_dom_version"
     compile "org.jetbrains:kotlin-react-router-dom:$react_router_dom_version"
+    compile "org.jetbrains:kotlin-css:$kotlin_css_version"
+    compile "org.jetbrains:kotlin-css-js:$kotlin_css_js_version"
+    compile "org.jetbrains:kotlin-styled:$kotlin_styled_version"
     expectedBy project(':common')
     compile project(':common-js')
 }

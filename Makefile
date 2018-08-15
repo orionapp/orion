@@ -7,7 +7,7 @@ build:
 	BUILD_ENV=production ./gradlew build
 
 # Builds and runs the webpack dev server.
-dev:
+dev: stop clean
 	# Use `gradlew.bat -t run` if on Windows.
 	BUILD_ENV=development ./gradlew -t run
 
@@ -28,9 +28,6 @@ clean:
 # Removes and recompiles everything in prod mode.
 fresh: clean build
 
-# Rebuilds in dev mode and starts the dev server.
-redev: clean dev
-
 # Specifies which rule targets don't actually refer to filenames, but
 # are just commands instead.
-.PHONY: all build dev stop serve clean fresh redev
+.PHONY: all build dev stop serve clean fresh
