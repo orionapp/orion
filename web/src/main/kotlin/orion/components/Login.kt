@@ -12,7 +12,7 @@ class Login : RComponent<RProps, RState>() {
         styledDiv {
             css {
                 classes = arrayListOf("center-div-outer")
-                height = 100.pct.minus(60.px)
+                height = 100.pct.minus(80.px)
                 margin(top = -30.px)
             }
             styledDiv {
