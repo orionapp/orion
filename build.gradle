@@ -3,8 +3,10 @@ ext {
     version = '0.0.1'
     gradle_version = '4.9'
     kotlin_version = '1.2.60'
-    build_env = System.getenv("BUILD_ENV") ?: "production"
+    build_env = project.findProperty('env') ?: 'production'
 }
+
+println "Environment is set to $build_env."
 
 group = group
 version = version

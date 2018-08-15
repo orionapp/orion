@@ -37,7 +37,7 @@ compileKotlin2Js {
     }
 }
 
-def webpack_config = build_env == "production" ? 'webpack.prod.js' : 'webpack.dev.js'
+def webpack_config = build_env == 'production' ? 'webpack.prod.js' : 'webpack.dev.js'
 
 kotlinFrontend {
     downloadNodeJsVersion = nodejs_version
@@ -47,10 +47,14 @@ kotlinFrontend {
         dependency("react-router-dom", "4.3.1")
         dependency("express", "4.16.3")
         devDependency("webpack", "4.16.5")
+        devDependency("webpack-dev-server", "3.1.5")
+        devDependency("webpack-cli", "3.1.0")
         devDependency("html-webpack-plugin", "^3.2.0")
         devDependency("clean-webpack-plugin", "^0.1.19")
         devDependency("css-loader", "^0.28.11")
         devDependency("file-loader", "^1.1.11")
+        devDependency("sass-loader", "7.1.0")
+        devDependency("node-sass", "4.9.3")
         devDependency("style-loader", "^0.21.0")
         devDependency("webpack-merge", "4.1.4")
         devDependency("uglifyjs-webpack-plugin", "1.2.7")

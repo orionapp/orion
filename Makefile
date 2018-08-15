@@ -4,12 +4,12 @@ all: build
 # Builds the app in the prod environment.
 build:
 	# Use `gradlew.bat build` if on Windows.
-	BUILD_ENV=production ./gradlew build
+	./gradlew -Penv=production build
 
 # Builds and runs the webpack dev server.
 dev: stop clean
 	# Use `gradlew.bat -t run` if on Windows.
-	BUILD_ENV=development ./gradlew -t run
+	./gradlew -Penv=development -t run
 
 # Stops the dev server.
 stop:
@@ -26,8 +26,8 @@ clean:
 	./gradlew clean
 
 # Removes and recompiles everything in prod mode.
-fresh: clean build
+stage: clean build
 
 # Specifies which rule targets don't actually refer to filenames, but
 # are just commands instead.
-.PHONY: all build dev stop serve clean fresh
+.PHONY: all build dev stop serve clean stage
