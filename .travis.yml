@@ -1,0 +1,6 @@
+jobs:
+  include:
+    - stage: build
+      script: "placeholder - build"
+    - stage: test
+      script: "placeholder - test"
