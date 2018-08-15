@@ -1,40 +1,33 @@
 # Compiles everything.
-all: prod
-
-# Builds the app in the dev environment.
-dev:
-	# Use `gradlew.bat build` if on Windows.
-	BUILD_ENV=development ./gradlew build
+all: build
 
 # Builds the app in the prod environment.
-prod:
+build:
 	# Use `gradlew.bat build` if on Windows.
-	BUILD_ENV=production ./gradlew build
+	./gradlew -Penv=production build
 
-# Runs the web app in a dev server.
-run:
-	# Use `gradlew.bat web:run` if on Windows.
-	BUILD_ENV=development ./gradlew web:run
+# Builds and runs the webpack dev server.
+dev: stop clean
+	# Use `gradlew.bat -t run` if on Windows.
+	./gradlew -Penv=development -t run
 
-# Stops the dev server in the background.
+# Stops the dev server.
 stop:
-	# Use `gradlew.bat web:stop` if on Windows.
-	BUILD_ENV=development ./gradlew web:stop
+	# Use `gradlew.bat stop` if on Windows.
+	./gradlew stop
+
+# Serves the web app using express server.
+serve:
+	NODE_ENV=production node web/src/server/server.js
 
 # Removes all object and executable files.
 clean:
 	# Use `gradlew.bat clean` if on Windows.
 	./gradlew clean
 
-# Removes and recompiles everything in dev mode.
-rebuild: clean dev
-
-# Rebuilds in dev mode and starts the dev server.
-rerun: clean run
-
-# Rebuilds everything in the production environment.
-stage: clean prod
+# Removes and recompiles everything in prod mode.
+stage: clean build
 
 # Specifies which rule targets don't actually refer to filenames, but
 # are just commands instead.
-.PHONY: all dev prod run stop clean rebuild rerun stage
+.PHONY: all build dev stop serve clean stage

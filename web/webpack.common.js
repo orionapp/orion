@@ -12,13 +12,13 @@ module.exports = {
     },
     resolve: {
         modules: [ path.resolve('js'), path.resolve('..', 'src'), path.resolve('.'), path.resolve('node_modules') ],
-        extensions: ['*', '.js']
+        extensions: ['*', '.js', '.css']
     },
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                test: /\.(css|scss)$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,

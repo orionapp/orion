@@ -1,0 +1,41 @@
+:root {
+    --main-bg-color: #FFFFFF;
+    --secondary-bg-color: #D3E3FC;
+    --main-contrast-color: #4444BB;
+    --secondary-contrast-color: #77A6F7;
+    --main-accent-color: #FF6B6B;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', sans-serif;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    min-width: 350px;
+    min-height: 350px;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.center-div-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.floating {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 8px;
+    padding: 20px;
+}
