@@ -1,23 +1,34 @@
 import kotlin.test.*
-import kotlin.js.JSON 
+import kotlin.js.*
 import orion.data.*
 import js.model.*
+
 
 class TestSource {
     @Test
     fun testToTask() {
-        var myTask = Task("123", "resign", 2)
-
-        var s = """
+        var expect1 = Task(
+                Id = "123",
+                Description = "resign",
+                CreatedAt = "2018-08-17",
+                Deadline = "2018-08-20",
+                Priority = 1, 
+                Notes = "some notes go here"
+        )
+        var test1 = """
         {
             "Id": "123",
             "Description": "resign",
-            "Priority": 2
+            "CreatedAt": "2018-08-17",
+            "Deadline": "2018-08-20",
+            "Priority": 1,
+            "Notes": "some notes go here"
         }
-        """ 
+        """
+
         assertEquals(
-            myTask,
-            ToTask(s)
+            expect1,
+            ToTask(test1)
         )
     }
 }
