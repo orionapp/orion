@@ -4,3 +4,5 @@ jobs:
   include:
     - stage: build
       script: "make stage"
+    - stage: test
+      script: "make test"

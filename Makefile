@@ -6,6 +6,9 @@ build:
 	# Use `gradlew.bat build` if on Windows.
 	./gradlew -Penv=production build
 
+test:
+	./gradlew :common-js:test
+
 # Builds and runs the webpack dev server.
 dev: stop clean
 	# Use `gradlew.bat -t run` if on Windows.
